@@ -70,26 +70,22 @@ class buttonVoter extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 128,
-      height: 44,
+      height: 40,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        gradient: LinearGradient(
-          colors: [
-            Color(0xFFf63a49),
-            Color(0xFFf61546),
-          ],
-        ),
+        color: ThemeColors.mainBlue,
         boxShadow: [
-          BoxShadow(color: Colors.white12, blurRadius: 6, offset: Offset(0, 4))
+          BoxShadow(
+              color: Color(0xffc9d1e4), blurRadius: 6, offset: Offset(0, 4))
         ],
       ),
       child: FlatButton(
           materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
           onPressed: () {},
           child: Text(
-            "VOTER",
+            "Voter",
             style: new TextStyle(
-                color: Colors.white, fontFamily: 'Oxygen', fontSize: 16),
+                color: Colors.white, fontFamily: 'Oxygen', fontSize: 14),
           )),
     );
   }

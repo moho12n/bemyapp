@@ -199,19 +199,10 @@ class Poll extends StatelessWidget {
                 ],
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
-                  Expanded(
-                    flex: 5,
-                    child: SizedBox(),
-                  ),
-                  Expanded(
-                    flex: 3,
-                    child: buttonVoter(),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: SizedBox(),
-                  ),
+                  buttonVoter(),
+                  SizedBox(width: 12,)
                 ],
               ),
             ],
