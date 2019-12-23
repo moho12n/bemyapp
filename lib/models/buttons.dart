@@ -8,7 +8,7 @@ class buttonVisualer extends StatelessWidget {
       width: 128,
       height: 40,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(6),
         color: Colors.white,
         boxShadow: [
           BoxShadow(
@@ -45,7 +45,7 @@ class buttonComment extends StatelessWidget {
       width: 128,
       height: 40,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(6),
         color: ThemeColors.mainBlue,
         boxShadow: [
           BoxShadow(
@@ -72,7 +72,7 @@ class buttonVoter extends StatelessWidget {
       width: 128,
       height: 40,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(6),
         color: ThemeColors.mainBlue,
         boxShadow: [
           BoxShadow(
