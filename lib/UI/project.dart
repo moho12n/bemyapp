@@ -13,7 +13,7 @@ class MyListView extends StatelessWidget {
     padding: EdgeInsets.all(16),
     itemCount: 8,
     itemBuilder: (context, index) {
-      return Post();
+      return Poll();
     },
   );
   }
