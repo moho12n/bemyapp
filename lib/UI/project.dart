@@ -10,7 +10,7 @@ class MyListView extends StatelessWidget {
     physics: BouncingScrollPhysics(),
     scrollDirection: Axis.vertical,
     shrinkWrap: true,
-    padding: EdgeInsets.all(32),
+    padding: EdgeInsets.all(16),
     itemCount: 8,
     itemBuilder: (context, index) {
       return Post();
