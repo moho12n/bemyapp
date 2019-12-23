@@ -4,7 +4,7 @@ import '../models/buttons.dart';
 import '../theme.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
-
+/// Post
 class Post extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -88,6 +88,7 @@ class Post extends StatelessWidget {
   }
 }
 
+/// Poll
 class Poll extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -96,16 +97,18 @@ class Poll extends StatelessWidget {
         width: MediaQuery.of(context).size.width - 32,
         child: Stack(children: <Widget>[
           Container(
-            height: 168,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12.0),
-              color: Colors.white,
-              boxShadow: [
-                BoxShadow(
-                    color: Colors.black12, blurRadius: 4, offset: Offset(0, 2))
-              ],
+              height: 168,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12.0),
+                color: Colors.white70,
+                boxShadow: [
+                  BoxShadow(
+                      color: Color(0xffc9d1e4),
+                      blurRadius: 8,
+                      offset: Offset(0, 8))
+                ],
+              ),
             ),
-          ),
           Column(
             children: <Widget>[
               Row(

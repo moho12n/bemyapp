@@ -11,9 +11,9 @@ class MyListView extends StatelessWidget {
     scrollDirection: Axis.vertical,
     shrinkWrap: true,
     padding: EdgeInsets.all(16),
-    itemCount: 8,
+    itemCount: 3,
     itemBuilder: (context, index) {
-      return Poll();
+      return Column(children: <Widget>[Post(), SizedBox(height: 16,), Poll(),],);
     },
   );
   }
