@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'models/buttons.dart';
 import 'UI/project.dart';
 import 'UI/login.dart';
+import 'UI/budgetUI.dart';
+import 'backend/getList.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -29,11 +32,16 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xffeef0f4),
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
-        body: LoginPage());
+    return Scaffold(backgroundColor: Color(0xffeef0f4), body: MyList());
   }
 }
+
+/* Center(
+            child: RaisedButton(
+          child: Text("Send"),
+          onPressed: () {
+            makePostRequest("ga_namani@esi.dz", "azerty");
+            makePutRequest(
+                "l'education en Algérie souffre de plusieurs problèmes tel ques batata");
+          },
+        )) */

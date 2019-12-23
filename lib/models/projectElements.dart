@@ -167,7 +167,9 @@ class Poll extends StatelessWidget {
                         children: <Widget>[
                           Row(
                             children: <Widget>[
-                              SizedBox(width: 8,),
+                              SizedBox(
+                                width: 8,
+                              ),
                               Text(
                                 "Oui",
                               ),
@@ -175,10 +177,14 @@ class Poll extends StatelessWidget {
                                 child: SizedBox(),
                               ),
                               Text("72%"),
-                              SizedBox(width: 8,),
+                              SizedBox(
+                                width: 8,
+                              ),
                             ],
                           ),
-                          SizedBox(height: 8,),
+                          SizedBox(
+                            height: 8,
+                          ),
                           LinearPercentIndicator(
                             animation: true,
                             lineHeight: 8.0,
@@ -191,16 +197,16 @@ class Poll extends StatelessWidget {
                         ],
                       ),
                     ),
-
                     SizedBox(height: 12),
-
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Column(
                         children: <Widget>[
                           Row(
                             children: <Widget>[
-                              SizedBox(width: 8,),
+                              SizedBox(
+                                width: 8,
+                              ),
                               Text(
                                 "Non",
                               ),
@@ -208,10 +214,14 @@ class Poll extends StatelessWidget {
                                 child: SizedBox(),
                               ),
                               Text("13%"),
-                              SizedBox(width: 8,),
+                              SizedBox(
+                                width: 8,
+                              ),
                             ],
                           ),
-                          SizedBox(height: 8,),
+                          SizedBox(
+                            height: 8,
+                          ),
                           LinearPercentIndicator(
                             animation: true,
                             lineHeight: 8.0,
@@ -240,5 +250,70 @@ class Poll extends StatelessWidget {
             ),
           ]))
     ]);
+  }
+}
+
+//----------------------
+  String titre;
+  String budgetVert;
+  String budgetRouge;
+class BudgetElement extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width - 32,
+      child: Column(
+        children: <Widget>[
+          SizedBox(
+            height: 16,
+          ),
+          Text(
+            titre,
+            style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+          ),
+          SizedBox(
+            height: 16,
+          ),
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: SizedBox(),
+                flex: 2,
+              ),
+              Expanded(
+                child: Text(
+                  budgetVert,
+                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold,color: Colors.green),
+                ),
+                flex: 2,
+              ),
+              Expanded(
+                child: SizedBox(),
+                flex: 1,
+              ),
+              Expanded(
+                child: Text(budgetRouge,  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold,color: Colors.red),
+                ),
+                flex: 2,
+              ),
+              Expanded(
+                child: SizedBox(),
+                flex: 1,
+              ),
+            ],
+          )
+        ],
+      ),
+      height: 128,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12.0),
+        color: Colors.white70,
+        boxShadow: [
+          BoxShadow(
+              color: Color(0xffc9d1e4), blurRadius: 8, offset: Offset(0, 8))
+        ],
+      ),
+    );
   }
 }

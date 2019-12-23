@@ -65,7 +65,7 @@ class _MyLoginPage extends State<LoginPage> {
                     myEmailController.text, myPasswordController.text);
 
                 if (!erreur) {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => MyListView()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => MyList()));
                 }
               },
               child: Text("Login"),

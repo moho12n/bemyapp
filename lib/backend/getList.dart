@@ -6,6 +6,16 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 bool erreur = true;
+String liste;
+
+String getListe() {
+  final map = jsonDecode(liste) as Map<String, dynamic>;
+  String j = map['data']['projects_surveys'];
+  print("j= "+j);
+  print("liste = "+liste);
+  return liste;
+}
+
 final username = 'username';
 final password = 'password';
 final credentials = '$username:$password';
@@ -33,7 +43,7 @@ makeGetRequest() async {
   Map<String, String> headers = response.headers;
   String contentType = headers['content-type'];
   String json = response.body;
-  print(json);
+  liste = json;
   // TODO convert json to object...
 }
 
@@ -52,25 +62,27 @@ Future<bool> makePostRequest(String email, String password) async {
   String body = response.body;
   final map = jsonDecode(body) as Map<String, dynamic>;
   body = map['data']['token'];
-  print(body);
+  
   await storage.write(key: 'jwt', value: body);
   if (body == "null")
-    return erreur= true;
+    return erreur = true;
   else
-    return erreur=false;
+    return erreur = false;
 }
 
-makePutRequest() async {
+makePutRequest(String proposition) async {
   // set up PUT request arguments
-  String url = 'https://jsonplaceholder.typicode.com/posts/1';
-  Map<String, String> headers = {"Content-type": "application/json"};
-  String json = '{"title": "Hello", "body": "body text", "userId": 1}';
+  token = await storage.read(key: 'jwt');
+  String url = domainName+ "/api/proposition";
+  Map<String, String> headers = {"Content-type": "application/json","Authorization" : "Bearer "+token};
+  String json = '{"content": "$proposition"}';
   // make PUT request
-  Response response = await put(url, headers: headers, body: json);
+  Response response = await post(url, headers: headers, body: json);
   // check the status code for the result
   int statusCode = response.statusCode;
   // this API passes back the updated item with the id added
   String body = response.body;
+  print(body);
   // {
   //   "title": "Hello",
   //   "body": "body text",
