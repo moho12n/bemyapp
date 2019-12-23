@@ -27,10 +27,12 @@ dependencies:
   http: ^0.12.0+2
   flutter_secure_storage: ^3.3.1+1
   fluttertoast: ^3.1.3
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+  keyboard_visibility: any
+  image_picker: ^0.6.1+4
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

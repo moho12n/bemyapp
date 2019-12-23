@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 
 class ProjectItem {
-  String id;
+  int id;
   String title;
   String description;
   String created_at;
   String updated_at;
-  String user_id;
+  int user_id;
   String startDate;
   String duration;
   String budget;
@@ -28,12 +28,12 @@ class ProjectItem {
 
   factory ProjectItem.fromJson(Map<String, dynamic> json) {
     return ProjectItem(
-      json['id'] as String,
+      json['id'] as int,
       json['title'] as String,
       json['description'] as String,
       json['created_at'] as String,
       json['updated_at'] as String,
-      json['user_id'] as String,
+      json['user_id'] as int,
       json['start_date'] as String,
       json['duration'] as String,
       json['budget'] as String,
