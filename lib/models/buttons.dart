@@ -58,13 +58,21 @@ class buttonComment extends StatelessWidget {
       child: FlatButton(
           materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
           onPressed: () {},
-          child: Text(
-            "Commenter",
-            style: new TextStyle(
-                color: ThemeColors.blueMain,
-                fontFamily: 'Montserrat',
-                fontWeight: FontWeight.w500,
-                fontSize: 12),
+          child: Row(mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Image.asset('assets/icons/Message.png', height: 16,),
+              SizedBox(
+                width: 6,
+              ),
+              Text(
+                "Commenter",
+                style: new TextStyle(
+                    color: ThemeColors.blueMain,
+                    fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.w500,
+                    fontSize: 12),
+              )
+            ],
           )),
     );
   }
@@ -90,13 +98,21 @@ class buttonVoter extends StatelessWidget {
       child: FlatButton(
           materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
           onPressed: () {},
-          child: Text(
-            "Voter",
-            style: new TextStyle(
-                color: ThemeColors.blueMain,
-                fontFamily: 'Montserrat',
-                fontWeight: FontWeight.w500,
-                fontSize: 12),
+          child: Row(mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Image.asset('assets/icons/Message.png', height: 16,),
+              SizedBox(
+                width: 6,
+              ),
+              Text(
+                "Voter",
+                style: new TextStyle(
+                    color: ThemeColors.blueMain,
+                    fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.w500,
+                    fontSize: 12),
+              )
+            ],
           )),
     );
   }

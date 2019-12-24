@@ -37,13 +37,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
     return Scaffold(backgroundColor: ThemeColors.Red, body: MyMainPage()
     );
-=======
-    return Scaffold(backgroundColor: Color(0xffeef0f4), body: MyBudgetPage());
->>>>>>> 56fc3a475e4051682727754fe2ac08b3c560e93d
-  }
 }
-
+}
 

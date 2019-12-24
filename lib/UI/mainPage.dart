@@ -21,11 +21,128 @@ class _MyMainPageState extends State<MyMainPage> {
         backgroundColor: ThemeColors.greyBG,
         body: Stack(
           children: <Widget>[
-            MyList(),
+            Container(
+              height: 260,
+              decoration: BoxDecoration(
+                  border: Border(
+                      bottom:
+                          BorderSide(width: 1, color: ThemeColors.greyText))),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  SafeArea(
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 24, bottom: 16),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                        Image.asset('assets/Logo.png', height: 46,)
+                    ],
+                  ),
+                      )),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 24,
+                    ),
+                    child: Container(
+                      height: 54,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12.0),
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                              color: ThemeColors.shadow,
+                              blurRadius: 12,
+                              offset: Offset(0, 12))
+                        ],
+                      ),
+                      child: Row(
+                        children: <Widget>[
+                          SizedBox(
+                            width: 18,
+                          ),
+                          Text(
+                            "Rechercher",
+                            style: new TextStyle(
+                                color: ThemeColors.greyText,
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w500,
+                                fontSize: 18),
+                          ),
+                          Expanded(
+                            child: SizedBox(),
+                          ),
+                          Image.asset('assets/icons/Search.png', height: 22,),
+                          SizedBox(width: 18,)
+                        ],
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: SizedBox(),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Container(
+                        width: (MediaQuery.of(context).size.width - 48) / 3,
+                        height: 44,
+                        decoration: BoxDecoration(
+                            border: Border(
+                                bottom: BorderSide(
+                                    width: 4, color: ThemeColors.blueMain))),
+                        child: Center(
+                          child: Text(
+                            "Commune",
+                            style: new TextStyle(
+                                color: ThemeColors.blueMain,
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w600,
+                                fontSize: 16),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        width: (MediaQuery.of(context).size.width - 48) / 3,
+                        height: 44,
+                        child: Center(
+                          child: Text(
+                            "Wilaya",
+                            style: new TextStyle(
+                                color: ThemeColors.greyText,
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w500,
+                                fontSize: 16),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        width: (MediaQuery.of(context).size.width - 48) / 3,
+                        height: 44,
+                        child: Center(
+                          child: Text(
+                            "Ministère",
+                            style: new TextStyle(
+                                color: ThemeColors.greyText,
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w500,
+                                fontSize: 16),
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 260),
+              child: MyList(),
+            ),
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
-                height: 150,
+                height: 168,
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12.0),
@@ -37,12 +154,6 @@ class _MyMainPageState extends State<MyMainPage> {
                         ThemeColors.greyBG,
                         ThemeColors.greyBG
                       ]),
-                  boxShadow: [
-                    BoxShadow(
-                        color: ThemeColors.shadow,
-                        blurRadius: 12,
-                        offset: Offset(0, 12))
-                  ],
                 ),
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -73,11 +184,7 @@ class _MyMainPageState extends State<MyMainPage> {
                                     return prefix0.Dialog();
                                   });
                             },
-                            child: Icon(
-                              Icons.mode_edit,
-                              color: ThemeColors.blueMain,
-                              size: 32,
-                            ),
+                            child: Image.asset('assets/icons/Pen.png', height: 32,),
                           ),
                         ),
                       ),
