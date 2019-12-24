@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: 'Thémis'),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -33,7 +34,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: Color(0xffeef0f4), body: LoginPage());
+    return Scaffold(backgroundColor: Color(0xffeef0f4), body: MyBudgetPage());
   }
 }
 
