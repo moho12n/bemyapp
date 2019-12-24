@@ -1,7 +1,7 @@
 import 'package:bemyapp/models/projectElements.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sparkline/flutter_sparkline.dart';
-
+import 'package:bemyapp/theme.dart' as prefix0;
 
 class BudgetUi extends StatelessWidget {
   @override
@@ -127,12 +127,28 @@ class BudgetUi extends StatelessWidget {
 }
 //-----------------
 
-final firstColor = Color(0xffc10000);
-final secondColor = Colors.red;
+final firstColor = prefix0.ThemeColors.blueMain;
+final secondColor = prefix0.ThemeColors.blueAccent;
 
 class TopScreen extends StatelessWidget {
-
-  var data =[0.0,0.2,0.0,0.3,0.8,1.0,0.3,0.5,0.3,0.9,0.5,0.6,0.4,0.5,-0.2,0.5];
+  var data = [
+    0.0,
+    0.2,
+    0.0,
+    0.3,
+    0.8,
+    1.0,
+    0.3,
+    0.5,
+    0.3,
+    0.9,
+    0.5,
+    0.6,
+    0.4,
+    0.5,
+    -0.2,
+    0.5
+  ];
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -142,14 +158,14 @@ class TopScreen extends StatelessWidget {
           Container(
             height: 300,
             decoration: BoxDecoration(
-              gradient: LinearGradient(colors: [firstColor, secondColor]),
-              boxShadow: [
-              BoxShadow(
-                color: Colors.black12,
-                offset: Offset(0.0, 10),
-                blurRadius: 10.0,
-              ),
-            ]),
+                gradient: LinearGradient(colors: [firstColor, secondColor]),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black12,
+                    offset: Offset(0.0, 10),
+                    blurRadius: 10.0,
+                  ),
+                ]),
           ),
           Positioned(
             top: 70,
@@ -162,11 +178,13 @@ class TopScreen extends StatelessWidget {
                   padding: EdgeInsets.only(bottom: 10),
                   child: Row(
                     children: <Widget>[
-                      SizedBox(width: 60,),
+                      SizedBox(
+                        width: 60,
+                      ),
                       Expanded(
                         flex: 5,
                         child: Center(
-                          child: Text('Blood Requests',
+                          child: Text('Répartition du budget',
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 18,
@@ -176,7 +194,7 @@ class TopScreen extends StatelessWidget {
                       ),
                       Expanded(
                         flex: 1,
-                        child: Icon(Icons.person),
+                        child: SizedBox(),
                       )
                     ],
                   ),
@@ -212,13 +230,11 @@ class TopScreen extends StatelessWidget {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                     children: <Widget>[
-                                      Text(
-                                        '291',
-                                        style: TextStyle(
-                                            fontSize: 36,
-                                            fontWeight: FontWeight.bold,
-                                            fontFamily: 'Montserrat')
-                                      ),
+                                      Text('291',
+                                          style: TextStyle(
+                                              fontSize: 36,
+                                              fontWeight: FontWeight.bold,
+                                              fontFamily: 'Montserrat')),
                                       SizedBox(
                                         width: 10,
                                       ),
@@ -237,7 +253,8 @@ class TopScreen extends StatelessWidget {
                                     children: <Widget>[
                                       Text(
                                         'Available',
-                                        style: TextStyle(fontFamily: 'Montserrat'),
+                                        style:
+                                            TextStyle(fontFamily: 'Montserrat'),
                                       )
                                     ],
                                   )
@@ -256,7 +273,7 @@ class TopScreen extends StatelessWidget {
                                       Text(
                                         '-49%',
                                         style: TextStyle(
-                                            color: Colors.red,
+                                            color: prefix0.ThemeColors.Red,
                                             fontWeight: FontWeight.bold,
                                             fontFamily: 'Montserrat'),
                                       ),
@@ -278,7 +295,8 @@ class TopScreen extends StatelessWidget {
                                     children: <Widget>[
                                       Text(
                                         'Requests',
-                                        style: TextStyle(fontFamily: 'Montserrat'),
+                                        style:
+                                            TextStyle(fontFamily: 'Montserrat'),
                                       )
                                     ],
                                   )
@@ -297,7 +315,7 @@ class TopScreen extends StatelessWidget {
                               height: 50,
                               child: Sparkline(
                                 data: data,
-                                lineColor: Colors.red,
+                                lineColor: prefix0.ThemeColors.Red,
                                 pointsMode: PointsMode.none,
                               ),
                             )
@@ -311,6 +329,173 @@ class TopScreen extends StatelessWidget {
             ),
           )
         ],
+      ),
+    );
+  }
+}
+
+class Requests extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ListView.separated(
+      padding: EdgeInsets.all(16.0),
+      itemCount: _requestList.length,
+      itemBuilder: (BuildContext context, int index) {
+        return Container(
+          height: 150,
+          padding: EdgeInsets.all(16.0),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10), color: Colors.white),
+          child: Row(
+            children: <Widget>[
+              Container(
+                height: 100,
+                width: 80,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: prefix0.ThemeColors.blueMain),
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(8),
+                              topRight: Radius.circular(8)),
+                          color: prefix0.ThemeColors.Red),
+                      width: 80,
+                      height: 20,
+                      child: Center(
+                        child: Text(
+                          'URGENT',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 11,
+                              fontFamily: 'Montserrat'),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      height: 80,
+                      child: Center(
+                          child: Icon(
+                        Icons.work,
+                        color: Colors.white,
+                        size: 40,
+                      )),
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.all(16),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Container(
+                        height: 52,
+                        padding: EdgeInsets.all(0),
+                        child: Text(
+                          _requestList[index].name,
+                          style: TextStyle(
+                              fontSize: 17,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Montserrat'),
+                        )),
+                    Container(
+                      child: Row(
+                        children: <Widget>[
+                          Text(_requestList[index].gagne,
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  color: prefix0.ThemeColors.Green,
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.w600)),
+                          SizedBox(width: MediaQuery.of(context).size.width-  280,),
+                          Text(_requestList[index].perdu.toString(),
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  color: prefix0.ThemeColors.Red,
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.w600)),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
+        );
+      },
+      separatorBuilder: (BuildContext context, int index) => const Divider(
+        color: Colors.white10,
+      ),
+    );
+  }
+}
+
+class Data {
+  final String name, gagne, perdu;
+
+  Data(
+    this.name,
+    this.gagne,
+    this.perdu,
+  );
+}
+
+final List<Data> _requestList = [
+  Data('présidence de la République', "7.86  ", '7.82  '),
+  Data('Services du Premier misitre', "4,45  ", "4.5   "),
+  Data('Défence nationale', "1.118", "397.26"),
+  Data('Affaires étrangères', "425,57", "35.21"),
+  Data('Finances', "35,21 ", "72.67 "),
+  Data('Energie', "74,54 ", "87.51 "),
+  Data('Industrie et Mines', "86,82 ", "44.15 "),
+  Data('Justice', "4,61  ", "4,61  "),
+];
+
+///-----------------------
+///
+class MyBudgetPage extends StatefulWidget {
+  @override
+  _MyBudgetPageState createState() => _MyBudgetPageState();
+}
+
+class _MyBudgetPageState extends State<MyBudgetPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        color: Colors.black12,
+        child: Column(
+          children: <Widget>[
+            TopScreen(),
+            Container(
+              height: 50,
+              padding: EdgeInsets.fromLTRB(32, 16, 32, 8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    'Recent Updates',
+                    style: TextStyle(fontFamily: 'Montserrat'),
+                  ),
+                  Text(
+                    'View All',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, fontFamily: 'Montserrat'),
+                  )
+                ],
+              ),
+            ),
+            Container(
+              height: MediaQuery.of(context).size.height - 425,
+              child: Requests(),
+            ),
+          ],
+        ),
       ),
     );
   }
