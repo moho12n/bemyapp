@@ -1,11 +1,13 @@
 import 'package:bemyapp/UI/mainPage.dart';
 import 'package:bemyapp/models/projectElements.dart';
+import 'package:bemyapp/theme.dart';
 import 'package:flutter/material.dart';
 import 'models/buttons.dart';
 import 'UI/project.dart';
 import 'UI/login.dart';
 import 'UI/budgetUI.dart';
 import 'backend/getList.dart';
+import 'theme.dart';
 
 void main() => runApp(MyApp());
 
@@ -34,10 +36,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: Color(0xffeef0f4), body: Column(children: <Widget>[
-      SizedBox(height: 220,),
-      Post(),
-    ],));
+    return Scaffold(backgroundColor: ThemeColors.Red, body: MyMainPage()
+    );
   }
 }
 

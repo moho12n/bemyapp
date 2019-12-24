@@ -8,8 +8,12 @@ class ThemeColors {
 
   static const Color greyBG = Color(0xffeef0f4);
   static const Color greyBG60 = Color(0x99eef0f4);
+  static const Color greyBG30 = Color(0x50eef0f4);
+  static const Color greyBG0 = Color(0x00eef0f4);
   static const Color greyText = Color(0xffb2becb);
   static const Color greyDark = Color(0xFF546E7A);
+
+  static const Color shadow = Color(0x404E6984);
 
   static const Color Green = Color(0xFF23e19b);
   static const Color Red = Color(0xFFfe4a2d);

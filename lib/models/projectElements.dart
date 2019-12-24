@@ -11,91 +11,166 @@ class Post extends StatelessWidget {
     return Column(
       children: <Widget>[
         Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: <Widget>[
+            SizedBox(
+              width: 32,
+            ),
             Image.asset(
               'assets/icons/Poll.png',
-              width: 14,
+              width: 20,
             ),
             SizedBox(
               width: 6,
             ),
             Text(
-              'Projet',
-              style: TextStyle(color: ThemeColors.greyText, fontSize: 15),
+              "Projet",
+              style: new TextStyle(
+                  color: ThemeColors.greyText,
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.w600,
+                  fontSize: 14),
             ),
           ],
         ),
         SizedBox(
-          height: 16,
+          height: 20,
         ),
         Container(
             height: 188,
-            width: MediaQuery.of(context).size.width - 16,
+            width: MediaQuery.of(context).size.width - 48,
             child: Stack(
               children: <Widget>[
                 Container(
                   height: 168,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12.0),
-                    color: Colors.white70,
+                    color: Colors.white,
                     boxShadow: [
                       BoxShadow(
-                          color: Color(0xffc9d1e4),
-                          blurRadius: 8,
-                          offset: Offset(0, 8))
+                          color: ThemeColors.shadow,
+                          blurRadius: 12,
+                          offset: Offset(0, 12))
                     ],
                   ),
                 ),
                 Column(
+                  mainAxisSize: MainAxisSize.max,
                   children: <Widget>[
                     Row(
+                      mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: <Widget>[
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsets.all(12),
+                            padding: const EdgeInsets.only(left: 12),
                             child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
                               children: <Widget>[
-                                Text('Title'),
-                                Text('24 Oct : 90 jours'),
-                                Text('Oran'),
-                                Text('2,000,000 DZD'),
+                                Text(
+                                  "Titre du projet",
+                                  style: new TextStyle(
+                                      color: ThemeColors.greyText,
+                                      fontFamily: 'Montserrat',
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 18),
+                                ),
+                                SizedBox(
+                                  height: 14,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 12),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Text(
+                                        "24 Oct : 90 jours",
+                                        style: new TextStyle(
+                                            color: ThemeColors.blueDark,
+                                            fontFamily: 'Montserrat',
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 16),
+                                      ),
+                                      Text(
+                                        "Sidi Bachir",
+                                        style: new TextStyle(
+                                            color: ThemeColors.blueDark,
+                                            fontFamily: 'Montserrat',
+                                            fontWeight: FontWeight.w400,
+                                            fontSize: 14),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 14,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 16),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(30),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: ThemeColors.shadow,
+                                          offset: const Offset(0.0, 0.0),
+                                        ),
+                                        BoxShadow(
+                                          color: Colors.white,
+                                          offset: const Offset(0.0, 0.0),
+                                          blurRadius: 8.0,
+                                        ),
+                                      ],
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsets.all(8),
+                                      child: Center(
+                                        child: Text(
+                                          "2,000,000 DZD",
+                                          style: new TextStyle(
+                                              color: ThemeColors.greyText,
+                                              fontFamily: 'Montserrat',
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 16),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
                               ],
                             ),
                           ),
                         ),
-                        Column(
-                          children: <Widget>[
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  top: 12, right: 12, bottom: 8, left: 8),
-                              child: Container(
-                                height: 128,
-                                width: 128,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  image: DecorationImage(
-                                    image: AssetImage(
-                                        "assets/images/Project1.jpg"),
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              top: 12, right: 12, bottom: 0, left: 8),
+                          child: Container(
+                            height: 136,
+                            width: 136,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(8),
+                                  topRight: Radius.circular(8)),
+                              image: DecorationImage(
+                                image: AssetImage("assets/images/Project1.jpg"),
+                                fit: BoxFit.cover,
                               ),
-                            )
-                          ],
+                              boxShadow: [
+                                BoxShadow(
+                                    color: ThemeColors.shadow,
+                                    blurRadius: 12,
+                                    offset: Offset(0, 12))
+                              ],
+                            ),
+                          ),
                         )
                       ],
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
                       children: <Widget>[
-                        SizedBox(
-                          width: 12,
-                        ),
-                        Expanded(child: buttonVisualer()),
-                        SizedBox(
-                          width: 8,
-                        ),
                         buttonComment(),
                         SizedBox(
                           width: 12,
@@ -117,50 +192,66 @@ class Poll extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(children: <Widget>[
       Row(
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: <Widget>[
+          SizedBox(
+            width: 32,
+          ),
           Image.asset(
             'assets/icons/Poll.png',
-            width: 14,
+            width: 20,
           ),
           SizedBox(
             width: 6,
           ),
           Text(
-            'Sondage',
-            style: TextStyle(color: ThemeColors.greyText, fontSize: 15),
+            "Sondage",
+            style: new TextStyle(
+                color: ThemeColors.greyText,
+                fontFamily: 'Montserrat',
+                fontWeight: FontWeight.w600,
+                fontSize: 14),
           ),
         ],
       ),
       SizedBox(
-        height: 16,
+        height: 20,
       ),
       Container(
-          height: 188,
-          width: MediaQuery.of(context).size.width - 32,
+          height: 220,
+          width: MediaQuery.of(context).size.width - 48,
           child: Stack(children: <Widget>[
             Container(
-              height: 168,
+              height: 200,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12.0),
-                color: Colors.white70,
+                color: Colors.white,
                 boxShadow: [
                   BoxShadow(
-                      color: Color(0xffc9d1e4),
-                      blurRadius: 8,
-                      offset: Offset(0, 8))
+                      color: ThemeColors.shadow,
+                      blurRadius: 12,
+                      offset: Offset(0, 12))
                 ],
               ),
             ),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(top: 8, left: 12),
+                  child: Text(
+                    "Titre du projet",
+                    style: new TextStyle(
+                        color: ThemeColors.greyText,
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.w500,
+                        fontSize: 18),
+                  ),
+                ),
+                SizedBox(height: 8),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    SizedBox(
-                      height: 8,
-                    ),
-                    Text("Title"),
-                    SizedBox(height: 8),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Column(
@@ -172,26 +263,87 @@ class Poll extends StatelessWidget {
                               ),
                               Text(
                                 "Oui",
+                                style: new TextStyle(
+                                    color: ThemeColors.blueDark,
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 15),
                               ),
                               Expanded(
                                 child: SizedBox(),
                               ),
-                              Text("72%"),
+                              Text(
+                                "72%",
+                                style: new TextStyle(
+                                    color: ThemeColors.blueDark,
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16),
+                              ),
                               SizedBox(
                                 width: 8,
                               ),
                             ],
                           ),
                           SizedBox(
-                            height: 8,
+                            height: 4,
                           ),
                           LinearPercentIndicator(
                             animation: true,
-                            lineHeight: 8.0,
+                            lineHeight: 6.0,
                             animationDuration: 1000,
                             percent: 0.72,
                             linearStrokeCap: LinearStrokeCap.roundAll,
-                            progressColor: ThemeColors.Green,
+                            progressColor: ThemeColors.blueMain,
+                            backgroundColor: ThemeColors.greyBG,
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 12),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Column(
+                        children: <Widget>[
+                          Row(
+                            children: <Widget>[
+                              SizedBox(
+                                width: 8,
+                              ),
+                              Text(
+                                "Peut être",
+                                style: new TextStyle(
+                                    color: ThemeColors.blueDark,
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 15),
+                              ),
+                              Expanded(
+                                child: SizedBox(),
+                              ),
+                              Text(
+                                "15%",
+                                style: new TextStyle(
+                                    color: ThemeColors.blueDark,
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16),
+                              ),
+                              SizedBox(
+                                width: 8,
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 4,
+                          ),
+                          LinearPercentIndicator(
+                            animation: true,
+                            lineHeight: 6.0,
+                            animationDuration: 1000,
+                            percent: 0.15,
+                            linearStrokeCap: LinearStrokeCap.roundAll,
+                            progressColor: ThemeColors.blueMain,
                             backgroundColor: ThemeColors.greyBG,
                           ),
                         ],
@@ -209,26 +361,38 @@ class Poll extends StatelessWidget {
                               ),
                               Text(
                                 "Non",
+                                style: new TextStyle(
+                                    color: ThemeColors.blueDark,
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 15),
                               ),
                               Expanded(
                                 child: SizedBox(),
                               ),
-                              Text("13%"),
+                              Text(
+                                "13%",
+                                style: new TextStyle(
+                                    color: ThemeColors.blueDark,
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16),
+                              ),
                               SizedBox(
                                 width: 8,
                               ),
                             ],
                           ),
                           SizedBox(
-                            height: 8,
+                            height: 4,
                           ),
                           LinearPercentIndicator(
                             animation: true,
-                            lineHeight: 8.0,
+                            lineHeight: 6.0,
                             animationDuration: 1000,
                             percent: 0.13,
                             linearStrokeCap: LinearStrokeCap.roundAll,
-                            progressColor: ThemeColors.Red,
+                            progressColor: ThemeColors.blueMain,
                             backgroundColor: ThemeColors.greyBG,
                           ),
                         ],
@@ -254,11 +418,11 @@ class Poll extends StatelessWidget {
 }
 
 //----------------------
-  String titre;
-  String budgetVert;
-  String budgetRouge;
-class BudgetElement extends StatelessWidget {
+String titre;
+String budgetVert;
+String budgetRouge;
 
+class BudgetElement extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -284,7 +448,10 @@ class BudgetElement extends StatelessWidget {
               Expanded(
                 child: Text(
                   budgetVert,
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold,color: Colors.green),
+                  style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.green),
                 ),
                 flex: 2,
               ),
@@ -293,7 +460,12 @@ class BudgetElement extends StatelessWidget {
                 flex: 1,
               ),
               Expanded(
-                child: Text(budgetRouge,  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold,color: Colors.red),
+                child: Text(
+                  budgetRouge,
+                  style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.red),
                 ),
                 flex: 2,
               ),
