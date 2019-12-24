@@ -22,7 +22,7 @@ final credentials = '$username:$password';
 final stringToBase64 = utf8.fuse(base64);
 final encodedCredentials = stringToBase64.encode(credentials);
 final storage = new FlutterSecureStorage();
-final domainName = 'http://192.168.43.10:8000';
+final domainName = 'https://bemyapp.cufa-dz.com';
 
 String token = '';
 Map<String, String> headers = {

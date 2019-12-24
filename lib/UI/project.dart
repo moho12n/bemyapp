@@ -93,7 +93,7 @@ class MyListView extends State<MyList> {
                       ),
                       Text(
                         'Sondage',
-                        style: TextStyle(color: ThemeColors.Grey, fontSize: 15),
+                        style: TextStyle(color: ThemeColors.greyText, fontSize: 15),
                       ),
                     ],
                   ),
@@ -160,7 +160,7 @@ class MyListView extends State<MyList> {
                                         linearStrokeCap:
                                             LinearStrokeCap.roundAll,
                                         progressColor: ThemeColors.Green,
-                                        backgroundColor: ThemeColors.LightGrey,
+                                        backgroundColor: ThemeColors.greyBG,
                                       ),
                                     ],
                                   ),
@@ -199,7 +199,7 @@ class MyListView extends State<MyList> {
                                         linearStrokeCap:
                                             LinearStrokeCap.roundAll,
                                         progressColor: ThemeColors.Red,
-                                        backgroundColor: ThemeColors.LightGrey,
+                                        backgroundColor: ThemeColors.greyBG,
                                       ),
                                     ],
                                   ),
@@ -234,7 +234,7 @@ class MyListView extends State<MyList> {
                         Text(
                           'Projet',
                           style:
-                              TextStyle(color: ThemeColors.Grey, fontSize: 15),
+                              TextStyle(color: ThemeColors.greyText, fontSize: 15),
                         ),
                       ],
                     ),

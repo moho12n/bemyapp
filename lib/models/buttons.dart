@@ -27,7 +27,7 @@ class buttonVisualer extends StatelessWidget {
               Text(
                 "Visualiser",
                 style: new TextStyle(
-                    color: ThemeColors.Grey,
+                    color: ThemeColors.greyText,
                     fontFamily: 'Oxygen',
                     fontSize: 14),
               )
@@ -46,7 +46,7 @@ class buttonComment extends StatelessWidget {
       height: 40,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(6),
-        color: ThemeColors.mainBlue,
+        color: ThemeColors.blueMain,
         boxShadow: [
           BoxShadow(
               color: Color(0xffc9d1e4), blurRadius: 6, offset: Offset(0, 4))
@@ -73,7 +73,7 @@ class buttonVoter extends StatelessWidget {
       height: 40,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(6),
-        color: ThemeColors.mainBlue,
+        color: ThemeColors.blueMain,
         boxShadow: [
           BoxShadow(
               color: Color(0xffc9d1e4), blurRadius: 6, offset: Offset(0, 4))
