@@ -6,6 +6,7 @@ import 'dart:async';
 import 'dart:io';
 //import 'package:image_picker_modern/image_picker_modern.dart';
 import 'package:image_picker/image_picker.dart';
+import '../theme.dart';
 import 'package:bemyapp/backend/getList.dart';
 //-------
 
@@ -95,22 +96,25 @@ class _MyDialogState extends State<Dialog> {
                   milliseconds: 400,
                 ),
                 width: double.infinity,
-                height: 380,
+                height: 356,
                 padding: const EdgeInsets.all(12),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
+                    SizedBox(
+                      height: 8,
+                    ),
                     TextField(
+                        cursorColor: ThemeColors.blueMain,
                         textCapitalization: TextCapitalization.sentences,
                         maxLines: 1,
                         decoration: InputDecoration(
-                            labelText: "Je viens de",
-                            hintText: "Algérie,",
+                            labelText: "Proposition",
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(14)))),
                     SizedBox(
-                      height: 2.0,
+                      height: 8,
                     ),
                     Row(
                       mainAxisSize: MainAxisSize.min,
@@ -121,7 +125,7 @@ class _MyDialogState extends State<Dialog> {
                       ],
                     ),
                     SizedBox(
-                      height: 10,
+                      height: 8,
                     ),
                     TextField(
                         controller: myPropositionController,
@@ -133,22 +137,41 @@ class _MyDialogState extends State<Dialog> {
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(12)))),
                     SizedBox(
-                      height: 12.0,
+                      height: 8,
                     ),
                     OutlineButton(
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12.0)),
                         onPressed: _pickImage,
-                        child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Text("Ajouter une photo  "),
-                              Icon(Icons.add_a_photo),
-                            ])),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 12),
+                          child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Icon(
+                                  Icons.add_a_photo,
+                                  color: ThemeColors.blueMain,
+                                ),
+                                SizedBox(
+                                  width: 8,
+                                ),
+                                Text(
+                                  "Ajouter une photo",
+                                  style: new TextStyle(
+                                      color: ThemeColors.blueMain,
+                                      fontFamily: 'Montserrat',
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 13),
+                                ),
+                              ]),
+                        )),
+                    SizedBox(
+                      height: 8,
+                    ),
                     Container(
                       width: MediaQuery.of(context).size.width,
-                      height: 40,
+                      height: 54,
                       child: FlatButton(
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12.0)),
