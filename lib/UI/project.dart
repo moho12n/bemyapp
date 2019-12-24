@@ -130,7 +130,7 @@ class MyListView extends State<MyList> {
                                 SizedBox(
                                   height: 8,
                                 ),
-                                Text("Title"),
+                                Text(data[index].title),
                                 SizedBox(height: 8),
                                 Padding(
                                   padding: const EdgeInsets.symmetric(
@@ -276,10 +276,11 @@ class MyListView extends State<MyList> {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: <Widget>[
-                                            Text('Title'),
-                                            Text('24 Oct : 90 jours'),
-                                            Text('Oran'),
-                                            Text('2,000,000 DZD'),
+                                            Text(data[index].title),
+                                            Text(data[index].startDate +
+                                                " : " +
+                                                data[index].duration),
+                                            Text(data[index].budget),
                                           ],
                                         ),
                                       ),
