@@ -11,8 +11,8 @@ String liste;
 String getListe() {
   final map = jsonDecode(liste) as Map<String, dynamic>;
   String j = map['data']['projects_surveys'];
-  print("j= "+j);
-  print("liste = "+liste);
+  print("j= " + j);
+  print("liste = " + liste);
   return liste;
 }
 
@@ -63,7 +63,7 @@ Future<bool> makePostRequest(String email, String password) async {
   String body = response.body;
   final map = jsonDecode(body) as Map<String, dynamic>;
   body = map['data']['token'];
-  print(body);
+
   await storage.write(key: 'jwt', value: body);
   if (body == "null")
     return erreur = true;
@@ -74,9 +74,14 @@ Future<bool> makePostRequest(String email, String password) async {
 makePutRequest(String proposition) async {
   // set up PUT request arguments
   token = await storage.read(key: 'jwt');
-  String url = domainName+ "/api/proposition";
-  Map<String, String> headers = {"Content-type": "application/json","Authorization" : "Bearer "+token};
-  String json = '{"content": "$proposition"}';
+  print(token);
+  String url = domainName + "/api/proposition";
+  Map<String, String> headers = {
+    "Content-type": "application/json",
+    "Authorization": "Bearer " + token
+  };
+  String txt = "Bearer " + token;
+  String json = '{"Authorization": "Bearer $token" ,"content": "$proposition"}';
   // make PUT request
   Response response = await post(url, headers: headers, body: json);
   // check the status code for the result
@@ -84,12 +89,7 @@ makePutRequest(String proposition) async {
   // this API passes back the updated item with the id added
   String body = response.body;
   print(body);
-  // {
-  //   "title": "Hello",
-  //   "body": "body text",
-  //   "userId": 1,
-  //   "id": 1
-  // }
+  print(statusCode);
 }
 
 makePatchRequest() async {

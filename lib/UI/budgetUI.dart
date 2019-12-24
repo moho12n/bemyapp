@@ -361,7 +361,7 @@ class Requests extends StatelessWidget {
                       height: 20,
                       child: Center(
                         child: Text(
-                          'URGENT',
+                          '',
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 11,

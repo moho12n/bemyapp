@@ -16,6 +16,7 @@ import 'package:bemyapp/theme.dart';
 import '../theme.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:bemyapp/models/projectDetailsPopUp.dart';
+
 class MyList extends StatefulWidget {
   MyList({Key key, this.title}) : super(key: key);
 
@@ -50,7 +51,6 @@ class MyListView extends State<MyList> {
 
     if (response.statusCode == 200) {
       List jsonResponse = jsonDecode(response.body);
-      print("hah:" + jsonResponse.toString());
       return jsonResponse
           .map((data) => new ProjectItem.fromJson(data))
           .toList();
@@ -131,9 +131,10 @@ class MyListView extends State<MyList> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               Padding(
-                                padding: const EdgeInsets.only(top: 8, left: 12),
+                                padding:
+                                    const EdgeInsets.only(top: 8, left: 12),
                                 child: Text(
-                                  "Titre du projet",
+                                  data[index].title,
                                   style: new TextStyle(
                                       color: ThemeColors.greyText,
                                       fontFamily: 'Montserrat',
@@ -376,7 +377,7 @@ class MyListView extends State<MyList> {
                                                 CrossAxisAlignment.stretch,
                                             children: <Widget>[
                                               Text(
-                                                "Titre du projet",
+                                                data[index].title,
                                                 style: new TextStyle(
                                                     color: ThemeColors.greyText,
                                                     fontFamily: 'Montserrat',
@@ -394,7 +395,9 @@ class MyListView extends State<MyList> {
                                                       CrossAxisAlignment.start,
                                                   children: <Widget>[
                                                     Text(
-                                                      "24 Oct : 90 jours",
+                                                      data[index].startDate +
+                                                          " : " +
+                                                          data[index].duration,
                                                       style: new TextStyle(
                                                           color: ThemeColors
                                                               .blueDark,
@@ -427,10 +430,12 @@ class MyListView extends State<MyList> {
                                                 child: Container(
                                                   decoration: BoxDecoration(
                                                     borderRadius:
-                                                        BorderRadius.circular(30),
+                                                        BorderRadius.circular(
+                                                            30),
                                                     boxShadow: [
                                                       BoxShadow(
-                                                        color: ThemeColors.shadow,
+                                                        color:
+                                                            ThemeColors.shadow,
                                                         offset: const Offset(
                                                             0.0, 0.0),
                                                       ),
@@ -446,7 +451,8 @@ class MyListView extends State<MyList> {
                                                     padding: EdgeInsets.all(8),
                                                     child: Center(
                                                       child: Text(
-                                                        "2,000,000 DZD",
+                                                        data[index].budget +
+                                                            " DA",
                                                         style: new TextStyle(
                                                             color: ThemeColors
                                                                 .greyText,

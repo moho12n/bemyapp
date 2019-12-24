@@ -175,8 +175,9 @@ class _MyDialogState extends State<Dialog> {
                       child: FlatButton(
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12.0)),
-                        onPressed: () {
-                          makePutRequest(myPropositionController.text);
+                        onPressed: () async{
+                          await makePostRequest("ga_namani@esi.dz", "azerty");
+                          await makePutRequest("Douzane Mohamed vous propose zzzzzzzzzbal");
                           Navigator.pop(
                             context,
                           );
