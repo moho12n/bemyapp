@@ -183,7 +183,7 @@ class TopScreen extends StatelessWidget {
                         flex: 5,
                         child: Container(
                           alignment: Alignment.center,
-                          child: Text("Répartition du Budget (en MR)",
+                          child: Text("Répartition du Budget (Mrd DZD)",
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 18,
@@ -234,9 +234,9 @@ class TopScreen extends StatelessWidget {
                                         width: 10,
                                       ),
                                       Text(
-                                        '-12%',
+                                        '-0.1%',
                                         style: TextStyle(
-                                            color: Colors.orange,
+                                            color: Colors.greenAccent,
                                             fontWeight: FontWeight.bold,
                                             fontFamily: 'Montserrat'),
                                       )
@@ -247,7 +247,7 @@ class TopScreen extends StatelessWidget {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: <Widget>[
                                       Text(
-                                        '4.591,8\nmilliards DA',
+                                        '4.584,46\nmilliards DA',
                                         style:
                                             TextStyle(fontFamily: 'Montserrat'),
                                       )
@@ -266,9 +266,9 @@ class TopScreen extends StatelessWidget {
                                         CrossAxisAlignment.center,
                                     children: <Widget>[
                                       Text(
-                                        '+1.1%',
+                                        '',
                                         style: TextStyle(
-                                            color: Colors.greenAccent,
+                                            color: Colors.red,
                                             fontWeight: FontWeight.bold,
                                             fontFamily: 'Montserrat'),
                                       ),
@@ -276,7 +276,7 @@ class TopScreen extends StatelessWidget {
                                         width: 10,
                                       ),
                                       Text(
-                                        '2019',
+                                        '2017',
                                         style: TextStyle(
                                             fontSize: 36,
                                             fontWeight: FontWeight.bold,
@@ -289,7 +289,7 @@ class TopScreen extends StatelessWidget {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: <Widget>[
                                       Text(
-                                        '4.584,46\nmilliards DA',
+                                        '4.591,8\nmilliards DA',
                                         style:
                                             TextStyle(fontFamily: 'Montserrat'),
                                       )
@@ -477,11 +477,11 @@ class _MyBudgetPageState extends State<MyBudgetPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text(
-                    'Nouveautés',
+                    '',
                     style: TextStyle(fontFamily: 'Montserrat'),
                   ),
                   Text(
-                    'Voir Plus',
+                    '',
                     style: TextStyle(
                         fontWeight: FontWeight.bold, fontFamily: 'Montserrat'),
                   )
