@@ -1,3 +1,4 @@
+import 'package:bemyapp/UI/mainPage.dart';
 import 'package:bemyapp/UI/project.dart';
 import 'package:flutter/material.dart';
 import '../backend/getList.dart';
@@ -65,7 +66,7 @@ class _MyLoginPage extends State<LoginPage> {
                     myEmailController.text, myPasswordController.text);
 
                 if (!erreur) {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => MyList()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => MyMainPage()));
                 }
               },
               child: Text("Login"),
