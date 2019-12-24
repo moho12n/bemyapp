@@ -1,0 +1,96 @@
+
+
+https://www.getpostman.com/collections/0bddae3980ca1e82bec5
+{
+   "data": {
+       "projects_surveys": [
+           {
+               "id": 1,
+               "title": "Polyclinique",
+               "description": "Construction d'un nouveau polyclinique au niveau de la nouvelle cité pour diminuer la charge sur les autres",
+               "created_at": "2019-12-23 10:12:11",
+               "updated_at": "2019-12-23 10:12:13",
+               "user_id": 2,
+               "type": "project"
+           },
+           {
+               "id": 2,
+               "title": "Stade",
+               "description": "Construction d'un nouveau stade au niveau de la nouvelle cité pour diminuer la charge sur les autres",
+               "created_at": "2019-12-23 10:12:11",
+               "updated_at": "2019-12-23 10:12:13",
+               "user_id": 2,
+               "type": "project"
+           },
+           {
+               "id": 1,
+               "title": "Projet A ou Projet B ",
+               "description": "Veuillez choisir entre ces deux projets",
+               "created_at": "2019-12-23 10:16:20",
+               "updated_at": "2019-12-23 10:16:21",
+               "user_id": 2,
+               "total_votes": 1,
+               "type": "survey",
+               "choices": [
+                   {
+                       "id": 1,
+                       "title": "A",
+                       "created_at": null,
+                       "updated_at": null,
+                       "survey_id": 1,
+                       "count_votes": 1,
+                       "votes": [
+                           {
+                               "id": 1,
+                               "user_id": 1,
+                               "choice_id": 1,
+                               "created_at": "2019-12-23 12:52:33",
+                               "updated_at": "2019-12-23 12:52:34"
+                           }
+                       ]
+                   },
+                   {
+                       "id": 2,
+                       "title": "B",
+                       "created_at": null,
+                       "updated_at": null,
+                       "survey_id": 1,
+                       "count_votes": 0,
+                       "votes": []
+                   }
+               ]
+           },
+           {
+               "id": 2,
+               "title": "Projet C ou Projet D ",
+               "description": "Veuillez choisir entre ces deux projets",
+               "created_at": "2019-12-23 10:16:20",
+               "updated_at": "2019-12-23 10:16:21",
+               "user_id": 2,
+               "total_votes": 0,
+               "type": "survey",
+               "choices": [
+                   {
+                       "id": 3,
+                       "title": "C",
+                       "created_at": null,
+                       "updated_at": null,
+                       "survey_id": 2,
+                       "count_votes": 0,
+                       "votes": []
+                   },
+                   {
+                       "id": 4,
+                       "title": "D",
+                       "created_at": null,
+                       "updated_at": null,
+                       "survey_id": 2,
+                       "count_votes": 0,
+                       "votes": []
+                   }
+               ]
+           }
+       ]
+   },
+   "message": "success"
+}
