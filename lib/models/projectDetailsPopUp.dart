@@ -8,6 +8,8 @@ import 'dart:io';
 
 import 'package:image_picker/image_picker.dart';
 import 'package:bemyapp/backend/listItem.dart';
+import 'package:bemyapp/theme.dart';
+import 'buttons.dart';
 //-------
 
 ProjectItem project = ProjectItem(0, "", "", "", "", "", "", "", "", "");
@@ -23,7 +25,7 @@ class ProjectDetailsDialog extends StatelessWidget {
     return Center(
       child: SizedBox(
         width: MediaQuery.of(context).size.width - 32,
-        child: MyPopupSurface(
+        child: MyPopupSurface2(
           child: child,
         ),
       ),
@@ -31,8 +33,8 @@ class ProjectDetailsDialog extends StatelessWidget {
   }
 }
 
-class MyPopupSurface extends StatelessWidget {
-  const MyPopupSurface({
+class MyPopupSurface2 extends StatelessWidget {
+  const MyPopupSurface2({
     Key key,
     this.isSurfacePainted = true,
     this.child,
@@ -65,10 +67,10 @@ class MyPopupSurface extends StatelessWidget {
 
 class DialogDetail extends StatefulWidget {
   @override
-  _MyDialogState createState() => new _MyDialogState();
+  _MyDialogState2 createState() => new _MyDialogState2();
 }
 
-class _MyDialogState extends State<DialogDetail> {
+class _MyDialogState2 extends State<DialogDetail> {
   File _pickedImage;
 
   Alignment childAlignment = Alignment.center;
@@ -100,54 +102,176 @@ class _MyDialogState extends State<DialogDetail> {
                 height: 380,
                 padding: const EdgeInsets.only(left: 12, right: 12),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
+                  mainAxisSize: MainAxisSize.max,
                   children: <Widget>[
                     Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.end,
                       children: <Widget>[
                         Expanded(
-                          flex: 1,
-                          child: Column(
-                            children: <Widget>[
-                              project.title != ""
-                                  ? Text(project.title)
-                                  : Text("Recyclage"),
-                              project.startDate != ""
-                                  ? Text(project.startDate +
-                                      " : " +
-                                      project.duration)
-                                  : Text("Mar, 24 dec :${project.duration}"),
-                              project.description != ""
-                                  ? Text(project.description)
-                                  : Text("Oran"),
-                              project.budget != ""
-                                  ? Text(project.budget)
-                                  : Text("200,000 DA"),
-                            ],
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 12),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: <Widget>[
+                                project.title == ""
+                                    ? Text(
+                                        "Titre du projet",
+                                        style: new TextStyle(
+                                            color: ThemeColors.greyText,
+                                            fontFamily: 'Montserrat',
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 18),
+                                      )
+                                    : Text(
+                                        project.title,
+                                        style: new TextStyle(
+                                            color: ThemeColors.greyText,
+                                            fontFamily: 'Montserrat',
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 18),
+                                      ),
+                                SizedBox(
+                                  height: 14,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 12),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      project.startDate == "" || project.startDate == null 
+                                          ? Text(
+                                              "24 Oct : 90 jours",
+                                              style: new TextStyle(
+                                                  color: ThemeColors.blueDark,
+                                                  fontFamily: 'Montserrat',
+                                                  fontWeight: FontWeight.w600,
+                                                  fontSize: 16),
+                                            )
+                                          : Text(
+                                              project.startDate +
+                                                  " : " +
+                                                  project.duration,
+                                              style: new TextStyle(
+                                                  color: ThemeColors.blueDark,
+                                                  fontFamily: 'Montserrat',
+                                                  fontWeight: FontWeight.w600,
+                                                  fontSize: 16),
+                                            ),
+                                      project.description == ""
+                                          ? Text(
+                                              "Sidi Bachir",
+                                              style: new TextStyle(
+                                                  color: ThemeColors.blueDark,
+                                                  fontFamily: 'Montserrat',
+                                                  fontWeight: FontWeight.w400,
+                                                  fontSize: 14),
+                                            )
+                                          : Text(
+                                              "Sidi Bachir",
+                                              style: new TextStyle(
+                                                  color: ThemeColors.blueDark,
+                                                  fontFamily: 'Montserrat',
+                                                  fontWeight: FontWeight.w400,
+                                                  fontSize: 14),
+                                            ),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 14,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 16),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(30),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: ThemeColors.shadow,
+                                          offset: const Offset(0.0, 0.0),
+                                        ),
+                                        BoxShadow(
+                                          color: Colors.white,
+                                          offset: const Offset(0.0, 0.0),
+                                          blurRadius: 8.0,
+                                        ),
+                                      ],
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsets.all(8),
+                                      child: Center(
+                                        child: project.budget == "" || project.budget == null
+                                            ? Text(
+                                                "2,000,000 DZD",
+                                                style: new TextStyle(
+                                                    color: ThemeColors.greyText,
+                                                    fontFamily: 'Montserrat',
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 16),
+                                              )
+                                            : Text(
+                                                project.budget,
+                                                style: new TextStyle(
+                                                    color: ThemeColors.greyText,
+                                                    fontFamily: 'Montserrat',
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 16),
+                                              ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                        Expanded(
-                          flex: 1,
-                          child: Image.asset(
-                            'assets/images/project1.jpg',
-                            height: 200,
-                            width: 180,
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              top: 12, right: 12, bottom: 0, left: 8),
+                          child: Container(
+                            height: 136,
+                            width: 136,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(8),
+                                  topRight: Radius.circular(8)),
+                              image: DecorationImage(
+                                image: AssetImage("assets/images/Project1.jpg"),
+                                fit: BoxFit.cover,
+                              ),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: ThemeColors.shadow,
+                                    blurRadius: 12,
+                                    offset: Offset(0, 12))
+                              ],
+                            ),
                           ),
                         )
                       ],
                     ),
+                    SizedBox(
+                      height: 18,
+                    ),
                     TextField(
                         textCapitalization: TextCapitalization.sentences,
-                        maxLines: 4,
+                        maxLines: 5,
                         decoration: InputDecoration(
                             labelText: "Partager votre avis",
                             hintText: "Description",
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(12)))),
+                    SizedBox(
+                      height: 12,
+                    ),
                     Container(
                       width: MediaQuery.of(context).size.width,
                       height: 40,
                       child: FlatButton(
+                        highlightColor: ThemeColors.blueDark,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12.0)),
                         onPressed: () {
@@ -156,7 +280,7 @@ class _MyDialogState extends State<DialogDetail> {
                           );
                         },
                         textColor: Colors.white,
-                        color: Colors.blue,
+                        color: ThemeColors.blueMain,
                         child: Text(
                           "Commenter",
                           style: TextStyle(
