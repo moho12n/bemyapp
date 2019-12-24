@@ -8,6 +8,7 @@ import 'UI/login.dart';
 import 'UI/budgetUI.dart';
 import 'backend/getList.dart';
 import 'theme.dart';
+import 'models/projectDetailsPopUp.dart';
 
 void main() => runApp(MyApp());
 
@@ -37,6 +38,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(backgroundColor: ThemeColors.Red, body: MyMainPage()
     );
 }

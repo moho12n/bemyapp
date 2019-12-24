@@ -14,7 +14,7 @@ class ProjectItem {
   String duration;
   String budget;
   String type;
-
+  
   ProjectItem(
     this.id,
     this.title,

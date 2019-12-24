@@ -1,3 +1,4 @@
+import 'package:bemyapp/models/projectDetailsPopUp.dart';
 import 'package:flutter/material.dart';
 import '../theme.dart';
 
@@ -57,22 +58,20 @@ class buttonComment extends StatelessWidget {
       ),
       child: FlatButton(
           materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-          onPressed: () {},
-          child: Row(mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Image.asset('assets/icons/Message.png', height: 16,),
-              SizedBox(
-                width: 6,
-              ),
-              Text(
-                "Commenter",
-                style: new TextStyle(
-                    color: ThemeColors.blueMain,
-                    fontFamily: 'Montserrat',
-                    fontWeight: FontWeight.w500,
-                    fontSize: 12),
-              )
-            ],
+          onPressed: () {
+            showDialog(
+                context: context,
+                builder: (_) {
+                  return DialogDetail();
+                });
+          },
+          child: Text(
+            "Commenter",
+            style: new TextStyle(
+                color: ThemeColors.blueMain,
+                fontFamily: 'Montserrat',
+                fontWeight: FontWeight.w500,
+                fontSize: 12),
           )),
     );
   }

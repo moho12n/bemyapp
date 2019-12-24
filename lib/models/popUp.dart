@@ -7,6 +7,7 @@ import 'dart:io';
 //import 'package:image_picker_modern/image_picker_modern.dart';
 import 'package:image_picker/image_picker.dart';
 import '../theme.dart';
+import 'package:bemyapp/backend/getList.dart';
 //-------
 
 class MyDialog extends StatelessWidget {
@@ -82,6 +83,7 @@ class _MyDialogState extends State<Dialog> {
     super.initState();
   }
 
+  final myPropositionController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return OrientationBuilder(builder: (context, orientation) {
@@ -126,6 +128,7 @@ class _MyDialogState extends State<Dialog> {
                       height: 8,
                     ),
                     TextField(
+                        controller: myPropositionController,
                         textCapitalization: TextCapitalization.sentences,
                         maxLines: 4,
                         decoration: InputDecoration(
@@ -170,24 +173,25 @@ class _MyDialogState extends State<Dialog> {
                       width: MediaQuery.of(context).size.width,
                       height: 54,
                       child: FlatButton(
-                        highlightColor: ThemeColors.blueDark,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12.0)),
-                          onPressed: () {
-                            Navigator.pop(
-                              context,
-                            );
-                          },
-                          textColor: Colors.white,
-                          color: ThemeColors.blueMain,
-                          child: Text(
-                            "Publier",
-                            style: new TextStyle(
-                                color: Colors.white,
-                                fontFamily: 'Montserrat',
-                                fontWeight: FontWeight.w500,
-                                fontSize: 14),
-                          )),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12.0)),
+                        onPressed: () {
+                          makePutRequest(myPropositionController.text);
+                          Navigator.pop(
+                            context,
+                          );
+                        },
+                        textColor: Colors.white,
+                        color: Colors.blue,
+                        child: Text(
+                          "Publier",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'Lora',
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14),
+                        ),
+                      ),
                     ),
                   ],
                 ),

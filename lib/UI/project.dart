@@ -15,7 +15,7 @@ import 'package:bemyapp/theme.dart';
 
 import '../theme.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-
+import 'package:bemyapp/models/projectDetailsPopUp.dart';
 class MyList extends StatefulWidget {
   MyList({Key key, this.title}) : super(key: key);
 
