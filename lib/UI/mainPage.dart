@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import './project.dart';
 import 'package:bemyapp/models/popUp.dart' as prefix0;
+import 'project.dart';
+import 'package:bemyapp/backend/listItem.dart';
 
 class MyMainPage extends StatefulWidget {
   MyMainPage({Key key, this.title}) : super(key: key);
@@ -52,7 +54,8 @@ class _MyMainPageState extends State<MyMainPage> {
                 ),
                 Icon(Icons.location_searching),
               ],
-            )
+            ),
+            MyList(),
           ],
         ));
   }
