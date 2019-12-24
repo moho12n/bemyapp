@@ -44,7 +44,8 @@ class BudgetUi extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           centerTitle: true,
-          title: Text("Répartition du Budget"),
+          title: Text(
+              "Répartition du Budget de l'état suivant la loi des finances courante (en milliard de dinnar)"),
         ),
         body: ListView.separated(
             separatorBuilder: (BuildContext context, int index) => Divider(),
@@ -178,13 +179,11 @@ class TopScreen extends StatelessWidget {
                   padding: EdgeInsets.only(bottom: 10),
                   child: Row(
                     children: <Widget>[
-                      SizedBox(
-                        width: 60,
-                      ),
                       Expanded(
                         flex: 5,
-                        child: Center(
-                          child: Text('Répartition du budget',
+                        child: Container(
+                          alignment: Alignment.center,
+                          child: Text("Répartition du Budget (en MR)",
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 18,
@@ -192,10 +191,6 @@ class TopScreen extends StatelessWidget {
                                   fontFamily: 'Montserrat')),
                         ),
                       ),
-                      Expanded(
-                        flex: 1,
-                        child: SizedBox(),
-                      )
                     ],
                   ),
                 ),
@@ -230,7 +225,7 @@ class TopScreen extends StatelessWidget {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                     children: <Widget>[
-                                      Text('291',
+                                      Text('2018',
                                           style: TextStyle(
                                               fontSize: 36,
                                               fontWeight: FontWeight.bold,
@@ -252,7 +247,7 @@ class TopScreen extends StatelessWidget {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: <Widget>[
                                       Text(
-                                        'Available',
+                                        '4.591,8\nmilliards DA',
                                         style:
                                             TextStyle(fontFamily: 'Montserrat'),
                                       )
@@ -271,9 +266,9 @@ class TopScreen extends StatelessWidget {
                                         CrossAxisAlignment.center,
                                     children: <Widget>[
                                       Text(
-                                        '-49%',
+                                        '+1.1%',
                                         style: TextStyle(
-                                            color: prefix0.ThemeColors.Red,
+                                            color: Colors.greenAccent,
                                             fontWeight: FontWeight.bold,
                                             fontFamily: 'Montserrat'),
                                       ),
@@ -281,7 +276,7 @@ class TopScreen extends StatelessWidget {
                                         width: 10,
                                       ),
                                       Text(
-                                        '481',
+                                        '2019',
                                         style: TextStyle(
                                             fontSize: 36,
                                             fontWeight: FontWeight.bold,
@@ -294,7 +289,7 @@ class TopScreen extends StatelessWidget {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: <Widget>[
                                       Text(
-                                        'Requests',
+                                        '4.584,46\nmilliards DA',
                                         style:
                                             TextStyle(fontFamily: 'Montserrat'),
                                       )
@@ -411,7 +406,9 @@ class Requests extends StatelessWidget {
                                   color: prefix0.ThemeColors.Green,
                                   fontFamily: 'Montserrat',
                                   fontWeight: FontWeight.w600)),
-                          SizedBox(width: MediaQuery.of(context).size.width-  280,),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width - 280,
+                          ),
                           Text(_requestList[index].perdu.toString(),
                               style: TextStyle(
                                   fontSize: 16,
@@ -446,12 +443,13 @@ class Data {
 }
 
 final List<Data> _requestList = [
-  Data('présidence de la République', "7.86  ", '7.82  '),
-  Data('Services du Premier misitre', "4,45  ", "4.5   "),
+  Data("Ministère de l'éducation", "7.86  ", '5.82  '),
+  Data('Energie', "74,54 ", "87.51 "),
+  Data('La présidence', "7.86  ", '7.82  '),
+  Data('Premier misitre', "4,45  ", "4.5   "),
   Data('Défence nationale', "1.118", "397.26"),
   Data('Affaires étrangères', "425,57", "35.21"),
   Data('Finances', "35,21 ", "72.67 "),
-  Data('Energie', "74,54 ", "87.51 "),
   Data('Industrie et Mines', "86,82 ", "44.15 "),
   Data('Justice', "4,61  ", "4,61  "),
 ];
@@ -479,11 +477,11 @@ class _MyBudgetPageState extends State<MyBudgetPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text(
-                    'Recent Updates',
+                    'Nouveautés',
                     style: TextStyle(fontFamily: 'Montserrat'),
                   ),
                   Text(
-                    'View All',
+                    'Voir Plus',
                     style: TextStyle(
                         fontWeight: FontWeight.bold, fontFamily: 'Montserrat'),
                   )
