@@ -1,6 +1,7 @@
 import 'package:bemyapp/models/projectElements.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sparkline/flutter_sparkline.dart';
+import 'package:bemyapp/theme.dart' as prefix0;
 
 class BudgetUi extends StatelessWidget {
   @override
@@ -126,8 +127,8 @@ class BudgetUi extends StatelessWidget {
 }
 //-----------------
 
-final firstColor = Color(0xffc10000);
-final secondColor = Colors.red;
+final firstColor = prefix0.ThemeColors.blueMain;
+final secondColor = prefix0.ThemeColors.blueAccent;
 
 class TopScreen extends StatelessWidget {
   var data = [
@@ -272,7 +273,7 @@ class TopScreen extends StatelessWidget {
                                       Text(
                                         '-49%',
                                         style: TextStyle(
-                                            color: Colors.red,
+                                            color: prefix0.ThemeColors.Red,
                                             fontWeight: FontWeight.bold,
                                             fontFamily: 'Montserrat'),
                                       ),
@@ -314,7 +315,7 @@ class TopScreen extends StatelessWidget {
                               height: 50,
                               child: Sparkline(
                                 data: data,
-                                lineColor: Colors.red,
+                                lineColor: prefix0.ThemeColors.Red,
                                 pointsMode: PointsMode.none,
                               ),
                             )
@@ -352,7 +353,7 @@ class Requests extends StatelessWidget {
                 width: 80,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: Color.fromRGBO(61, 62, 63, 1)),
+                    color: prefix0.ThemeColors.blueMain),
                 child: Column(
                   children: <Widget>[
                     Container(
@@ -360,7 +361,7 @@ class Requests extends StatelessWidget {
                           borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(8),
                               topRight: Radius.circular(8)),
-                          color: Colors.red),
+                          color: prefix0.ThemeColors.Red),
                       width: 80,
                       height: 20,
                       child: Center(
@@ -376,15 +377,11 @@ class Requests extends StatelessWidget {
                     Container(
                       height: 80,
                       child: Center(
-                        child: Text(
-                          _requestList[index].bloodtype,
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'Montserrat'),
-                        ),
-                      ),
+                          child: Icon(
+                        Icons.work,
+                        color: Colors.white,
+                        size: 40,
+                      )),
                     )
                   ],
                 ),
@@ -397,61 +394,28 @@ class Requests extends StatelessWidget {
                   children: <Widget>[
                     Container(
                         height: 52,
-                        padding: EdgeInsets.all(16),
+                        padding: EdgeInsets.all(0),
                         child: Text(
                           _requestList[index].name,
                           style: TextStyle(
-                              fontSize: 20,
+                              fontSize: 17,
                               fontWeight: FontWeight.bold,
                               fontFamily: 'Montserrat'),
                         )),
                     Container(
-                      padding: EdgeInsets.fromLTRB(16, 0, 0, 0),
                       child: Row(
                         children: <Widget>[
-                          Text(_requestList[index].age.toString(),
+                          Text(_requestList[index].gagne,
                               style: TextStyle(
+                                  fontSize: 16,
+                                  color: prefix0.ThemeColors.Green,
                                   fontFamily: 'Montserrat',
                                   fontWeight: FontWeight.w600)),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text('.'),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text(_requestList[index].gender,
+                          SizedBox(width: MediaQuery.of(context).size.width-  280,),
+                          Text(_requestList[index].perdu.toString(),
                               style: TextStyle(
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w600)),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text('.'),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text(_requestList[index].distance.toString(),
-                              style: TextStyle(
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w600)),
-                          Text('km',
-                              style: TextStyle(
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w600)),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text('.'),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text(_requestList[index].waitingHours.toString(),
-                              style: TextStyle(
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w600)),
-                          Text('hrs',
-                              style: TextStyle(
+                                  fontSize: 16,
+                                  color: prefix0.ThemeColors.Red,
                                   fontFamily: 'Montserrat',
                                   fontWeight: FontWeight.w600)),
                         ],
@@ -472,20 +436,24 @@ class Requests extends StatelessWidget {
 }
 
 class Data {
-  final String name, bloodtype, gender;
-  final int age, distance, waitingHours;
+  final String name, gagne, perdu;
 
-  Data(this.name, this.bloodtype, this.gender, this.age, this.distance,
-      this.waitingHours);
+  Data(
+    this.name,
+    this.gagne,
+    this.perdu,
+  );
 }
 
 final List<Data> _requestList = [
-  Data('Mohammed', 'A+', 'Male', 22, 2, 3),
-  Data('Sarah', 'B+', 'Female', 24, 3, 2),
-  Data('Mohammed', 'A+', 'Male', 22, 2, 3),
-  Data('Sarah', 'B+', 'Female', 24, 3, 2),
-  Data('Mohammed', 'A+', 'Male', 22, 2, 3),
-  Data('Sarah', 'B+', 'Female', 24, 3, 2),
+  Data('présidence de la République', "7.86  ", '7.82  '),
+  Data('Services du Premier misitre', "4,45  ", "4.5   "),
+  Data('Défence nationale', "1.118", "397.26"),
+  Data('Affaires étrangères', "425,57", "35.21"),
+  Data('Finances', "35,21 ", "72.67 "),
+  Data('Energie', "74,54 ", "87.51 "),
+  Data('Industrie et Mines', "86,82 ", "44.15 "),
+  Data('Justice', "4,61  ", "4,61  "),
 ];
 
 ///-----------------------
