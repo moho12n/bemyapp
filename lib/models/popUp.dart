@@ -93,22 +93,22 @@ class _MyDialogState extends State<Dialog> {
                   milliseconds: 400,
                 ),
                 width: double.infinity,
-                height: 400,
-                padding: const EdgeInsets.all(20),
-                alignment: childAlignment,
+                height: 380,
+                padding: const EdgeInsets.all(12),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    Text(
-                      "Partagez votre Feedback ! ",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontSize: 25,
-                          letterSpacing: 1.0,
-                          fontWeight: FontWeight.bold),
-                    ),
+                    TextField(
+                        textCapitalization: TextCapitalization.sentences,
+                        maxLines: 1,
+                        decoration: InputDecoration(
+                            labelText: "Je viens de",
+                            hintText: "Algérie,",
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(14)))),
                     SizedBox(
-                      height: 12.0,
+                      height: 2.0,
                     ),
                     Row(
                       mainAxisSize: MainAxisSize.min,
@@ -126,77 +126,46 @@ class _MyDialogState extends State<Dialog> {
                         maxLines: 4,
                         decoration: InputDecoration(
                             labelText: "Partager votre avis",
-                            hintText: "J'ai visité...",
+                            hintText: "Description",
                             border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(14)))),
+                                borderRadius: BorderRadius.circular(12)))),
                     SizedBox(
                       height: 12.0,
                     ),
                     OutlineButton(
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30.0)),
+                            borderRadius: BorderRadius.circular(12.0)),
                         onPressed: _pickImage,
                         child: Row(
-                            mainAxisSize: MainAxisSize.min,
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
                               Text("Ajouter une photo  "),
                               Icon(Icons.add_a_photo),
                             ])),
-                    SizedBox(
-                      height: 12,
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: 40,
+                      child: FlatButton(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12.0)),
+                        onPressed: () {
+                          Navigator.pop(
+                            context,
+                          );
+                        },
+                        textColor: Colors.white,
+                        color: Colors.blue,
+                        child: Text(
+                          "Publier",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'Lora',
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14),
+                        ),
+                      ),
                     ),
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        FlatButton(
-                          materialTapTargetSize:
-                              MaterialTapTargetSize.shrinkWrap,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5.0)),
-                          padding: EdgeInsets.only(left: 23.0, right: 23.0),
-                          onPressed: () {
-                            Navigator.pop(
-                              context,
-                            );
-                          },
-                          textColor: Colors.white,
-                          color: Colors.green,
-                          child: Text(
-                            "ANNULER",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontFamily: 'Lora',
-                                fontWeight: FontWeight.bold,
-                                fontSize: 14),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 100,
-                        ),
-                        FlatButton(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5.0)),
-                          materialTapTargetSize:
-                              MaterialTapTargetSize.shrinkWrap,
-                          onPressed: () {
-                            Navigator.pop(
-                              context,
-                            );
-                          },
-                          textColor: Colors.white,
-                          color: Colors.green,
-                          child: Text(
-                            "CONFIRMER",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontFamily: 'Lora',
-                                fontWeight: FontWeight.bold,
-                                fontSize: 14),
-                          ),
-                        ),
-                      ],
-                    )
                   ],
                 ),
               )));

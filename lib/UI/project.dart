@@ -39,7 +39,7 @@ class MyListView extends State<MyList> {
     creat();
   }
 
-  Future<List<ProjectItem>> _fetchJobs() async {
+  Future<List<ProjectItem>> fetchJobs() async {
     await prefix0.makePostRequest("ga_namani@esi.dz", "azerty");
     String token = await storage.read(key: 'jwt');
     String url = domainName;
@@ -61,27 +61,22 @@ class MyListView extends State<MyList> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(""),
-      ),
-      body: FutureBuilder<List<ProjectItem>>(
-        future: _fetchJobs(),
+    return FutureBuilder<List<ProjectItem>>(
+        future: fetchJobs(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             List<ProjectItem> data = snapshot.data;
-            return _jobsListView(data);
+            return jobsListView(data);
           } else if (snapshot.hasError) {
             return Text("${snapshot.error}");
           }
-          return CircularProgressIndicator();
+          return Center(child:CircularProgressIndicator());
         },
-      ),
-    );
+      );
   }
 
   ///AFFICHAGE DE LA LISTE DES PROJET / SONDAGES
-  ListView _jobsListView(data) {
+  ListView jobsListView(data) {
     return ListView.builder(
         itemCount: data.length,
         itemBuilder: (context, index) {
@@ -130,7 +125,7 @@ class MyListView extends State<MyList> {
                                 SizedBox(
                                   height: 8,
                                 ),
-                                Text("Title"),
+                                Text(data[index].title),
                                 SizedBox(height: 8),
                                 Padding(
                                   padding: const EdgeInsets.symmetric(
@@ -276,10 +271,11 @@ class MyListView extends State<MyList> {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: <Widget>[
-                                            Text('Title'),
-                                            Text('24 Oct : 90 jours'),
-                                            Text('Oran'),
-                                            Text('2,000,000 DZD'),
+                                            Text(data[index].title),
+                                            Text(data[index].startDate +
+                                                " : " +
+                                                data[index].duration),
+                                            Text(data[index].budget),
                                           ],
                                         ),
                                       ),
