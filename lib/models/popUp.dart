@@ -6,6 +6,7 @@ import 'dart:async';
 import 'dart:io';
 //import 'package:image_picker_modern/image_picker_modern.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:bemyapp/backend/getList.dart';
 //-------
 
 class MyDialog extends StatelessWidget {
@@ -81,6 +82,7 @@ class _MyDialogState extends State<Dialog> {
     super.initState();
   }
 
+  final myPropositionController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return OrientationBuilder(builder: (context, orientation) {
@@ -122,6 +124,7 @@ class _MyDialogState extends State<Dialog> {
                       height: 10,
                     ),
                     TextField(
+                        controller: myPropositionController,
                         textCapitalization: TextCapitalization.sentences,
                         maxLines: 4,
                         decoration: InputDecoration(
@@ -150,6 +153,7 @@ class _MyDialogState extends State<Dialog> {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12.0)),
                         onPressed: () {
+                          makePutRequest(myPropositionController.text);
                           Navigator.pop(
                             context,
                           );
