@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../backend/getList.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'dart:async';
+
 class LoginPage extends StatefulWidget {
   LoginPage({Key key, this.title}) : super(key: key);
 
@@ -18,7 +19,7 @@ class _MyLoginPage extends State<LoginPage> {
   final myPasswordController = TextEditingController();
 
   @override
-  Widget build(BuildContext context)  {
+  Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
           child: Container(
@@ -62,11 +63,12 @@ class _MyLoginPage extends State<LoginPage> {
                     backgroundColor: Colors.redAccent,
                     textColor: Colors.white,
                     fontSize: 12.0);
-                 makePostRequest(
-                    myEmailController.text, myPasswordController.text);
-
+                /* makePostRequest(
+                    myEmailController.text, myPasswordController.text);*/
+                makePostRequest("ga_namani@esi.dz", "azerty");
                 if (!erreur) {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => MyMainPage()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => MyMainPage()));
                 }
               },
               child: Text("Login"),

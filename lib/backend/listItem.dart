@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'dart:convert';
 
@@ -7,7 +9,7 @@ class ProjectItem {
   String description;
   String created_at;
   String updated_at;
-  int user_id;
+  String user_id;
   String startDate;
   String duration;
   String budget;
@@ -33,7 +35,7 @@ class ProjectItem {
       json['description'] as String,
       json['created_at'] as String,
       json['updated_at'] as String,
-      json['user_id'] as int,
+      json['user_id'] as String,
       json['start_date'] as String,
       json['duration'] as String,
       json['budget'] as String,

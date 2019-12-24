@@ -68,7 +68,7 @@ class MyListView extends State<MyList> {
             List<ProjectItem> data = snapshot.data;
             return jobsListView(data);
           } else if (snapshot.hasError) {
-            return Text("${snapshot.error}");
+            return Center(child: Text("${snapshot.error}"));
           }
           return Center(child:CircularProgressIndicator());
         },

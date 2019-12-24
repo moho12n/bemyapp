@@ -44,6 +44,7 @@ makeGetRequest() async {
   String contentType = headers['content-type'];
   String json = response.body;
   liste = json;
+  print(liste);
   // TODO convert json to object...
 }
 
@@ -62,7 +63,7 @@ Future<bool> makePostRequest(String email, String password) async {
   String body = response.body;
   final map = jsonDecode(body) as Map<String, dynamic>;
   body = map['data']['token'];
-  
+  print(body);
   await storage.write(key: 'jwt', value: body);
   if (body == "null")
     return erreur = true;
